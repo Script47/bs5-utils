@@ -1,3 +1,5 @@
+# bs5-utils
+=======
 # Bs5Utils - A JavaScript utility package for Bootstrap 5 components
 
 ---
@@ -7,6 +9,8 @@ A simple package to make the usage of various components within Bootstrap 5 easi
 If this package has helped you, and you're feeling particularly generous:
 - **ETH/MATIC:** 0x6515654c8e931052ab17a63311411D475D503e59
 - **ADA:** addr1qxaqvghsr8lu3wrmql4fcvg6txj5083s2a9rr5dmrrtjt0yn8t0x4yav3ma2flg3tzcu9767s7senydcumnf6c4krnnspn949q
+
+**Note:** The package is also available on npmjs: https://www.npmjs.com/package/bs5-utils
 
 ---
 
