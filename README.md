@@ -1,5 +1,3 @@
-# bs5-utils
-=======
 # Bs5Utils - A JavaScript utility package for Bootstrap 5 components
 
 ---
