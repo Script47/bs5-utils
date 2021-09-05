@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-solarizedlight.min.css"
+          integrity="sha512-fibfhB71IpdEKqLKXP/96WuX1cTMmvZioYp7T6I+lTbvJrrjEGeyYdAf09GHpFptF8toQ32woGZ8bw9+HjZc0A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        .bg-pink {
+            background-color: pink;
+        }
+
+        .text-purple {
+            color: purple;
+        }
+
+        .border-pink {
+            border-color: pink !important;
+        }
+    </style>
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<div class="container-fluid text-center text-white bg-dark shadow-lg py-5 mb-5">
+    <h1 class="fw-bold">bs5-utils</h1>
+</div>
+
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mb-2">
+                <div class="card-header bg-dark fw-bolder"><code>Bs5Utils.Snack.show</code></div>
+                <div class="card-body p-0">
+                    <pre class="m-0"><code id="snack-code" class="language-javascript">bs5Utils.Snack.show(
+    type,
+    title,
+    delay = 0,
+    dismissible = true
+);</code></pre>
+                </div>
+                <div class="card-footer p-0">
+                    <button id="show-snack-btn" class="btn d-block btn-dark rounded-0 w-100">Show Snack</button>
+                </div>
+            </div>
+
+            <div class="card mb-2">
+                <div class="card-header bg-dark fw-bolder"><code>Bs5Utils.Toast.show</code></div>
+                <div class="card-body p-0">
+                    <pre class="m-0"><code id="toast-code" class="language-javascript">bs5Utils.Toast.show({
+     type,
+     icon = '',
+     title,
+     subtitle = '',
+     content = '',
+     buttons = [],
+     delay = 0,
+     dismissible = true
+});</code></pre>
+                </div>
+                <div class="card-footer p-0">
+                    <button id="show-toast-btn" class="btn d-block btn-dark rounded-0 w-100">Show Toast</button>
+                </div>
+            </div>
+
+            <div class="card mb-2">
+                <div class="card-header bg-dark fw-bolder"><code>Bs5Utils.Modal.show</code></div>
+                <div class="card-body p-0">
+                    <pre class="m-0"><code id="modal-code" class="language-javascript">bs5Utils.Modal.show({
+     type,
+     title = '',
+     content = '',
+     buttons = [],
+     centered = false,
+     dismissible = true,
+     backdrop = dismissible ? true : 'static',
+     keyboard = dismissible,
+     focus = true,
+     fullscreen = false,
+     size = ''
+});</code></pre>
+                </div>
+                <div class="card-footer p-0">
+                    <button id="show-modal-btn" class="btn d-block btn-dark rounded-0 w-100">Show Modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"
+        integrity="sha512-axJX7DJduStuBB8ePC8ryGzacZPr3rdLaIDZitiEgWWk2gsXxEFlm4UW0iNzj2h3wp5mOylgHAzBzM4nRSvTZA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+<!--<script src="../src/js/components/Toast.js"></script>-->
+<!--<script src="../src/js/components/Snack.js"></script>-->
+<!--<script src="../src/js/components/Modal.js"></script>-->
+<!--<script src="../src/js/Bs5Utils.js"></script>-->
+<script src="../dist/js/Bs5Utils.js"></script>
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randFromArray(arr) {
+        return arr[getRandomInt(0, arr.length - 1)];
+    }
+
+    /***
+     * Overridable globals
+     ***/
+    Bs5Utils.defaults.toasts.position = 'top-right';
+    Bs5Utils.defaults.toasts.container = 'toast-container';
+    Bs5Utils.defaults.toasts.stacking = true;
+
+    const bs5Utils = new Bs5Utils();
+    const types = ['secondary', 'light', 'white', 'dark', 'info', 'primary', 'success', 'warning', 'danger'];
+
+    const snackCode = document.getElementById('snack-code'),
+        toastCode = document.getElementById('toast-code'),
+        modalCode = document.getElementById('modal-code');
+
+    Prism.highlightElement(snackCode);
+    Prism.highlightElement(toastCode);
+    Prism.highlightElement(modalCode);
+
+    document.querySelector('#show-snack-btn').addEventListener('click', function () {
+        const type = randFromArray(types);
+        let delay = 0;
+
+        if (getRandomInt(0, 1) === 1) {
+            delay = 5000;
+        }
+
+        bs5Utils.Snack.show(type, 'Hello World!', delay, true);
+        snackCode.innerHTML = `bs5Utils.Snack.show(
+    '${type}',
+    'Hello World!',
+    ${delay},
+    true
+);`;
+
+        Prism.highlightElement(snackCode);
+    });
+
+    document.querySelector('#show-toast-btn').addEventListener('click', function () {
+        const type = randFromArray(types),
+            buttons = getRandomInt(0, 1) === 1 ? [
+                {
+                    text: 'Click Me!',
+                    class: 'btn btn-sm btn-primary',
+                    handler: () => {
+                        alert(`${type} has been clicked!`);
+                    }
+                },
+                {
+                    text: 'Click Me Too!',
+                    class: 'btn btn-sm btn-warning',
+                    handler: () => {
+                        alert(`You clicked me too!`);
+                    }
+                },
+                {
+                    type: 'dismiss',
+                    text: 'Hide',
+                    class: 'btn btn-sm btn-secondary'
+                }
+            ] : [];
+
+        let icon = ``;
+
+        switch (getRandomInt(0, 2)) {
+            case 0:
+                icon = `<i class="far fa-check-circle fa-lg me-2"></i>`;
+                break;
+
+            case 1:
+                icon = `<svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>`;
+                break;
+
+            case 2:
+                icon = ``
+                break;
+        }
+
+        let delay = 0;
+
+        if (getRandomInt(0, 1) === 1) {
+            delay = 5000;
+        }
+
+        bs5Utils.Toast.show({
+            type,
+            icon,
+            title: `Notification!`,
+            subtitle: '23 secs ago',
+            content: `Hello World!`,
+            buttons,
+            delay
+        });
+
+        toastCode.innerHTML = `bs5Utils.Toast.show({
+    type: '${type}',
+    icon: '${icon}',
+    title: 'Notification!',
+    subtitle: '23 secs ago',
+    content: 'Hello World!',
+    buttons: ${JSON.stringify(buttons)},
+    delay: ${delay}
+});`;
+        Prism.highlightElement(toastCode);
+    });
+
+    document.querySelector('#show-modal-btn').addEventListener('click', function () {
+        const type = randFromArray(types),
+            buttons = getRandomInt(0, 1) === 1 ? [
+                {
+                    text: 'Click Me!',
+                    class: 'btn btn-sm btn-primary',
+                    handler: () => {
+                        alert(`${type} has been clicked!`);
+                    }
+                },
+                {
+                    text: 'Click Me Too!',
+                    class: 'btn btn-sm btn-warning',
+                    handler: () => {
+                        alert(`You clicked me too!`);
+                    }
+                },
+                {
+                    type: 'dismiss',
+                    text: 'Hide',
+                    class: 'btn btn-sm btn-secondary'
+                }
+            ] : [],
+            centered = randFromArray([false, true]),
+            keyboard = randFromArray([false, true]),
+            focus = randFromArray([false, true]);
+
+        bs5Utils.Modal.show({
+            type: type,
+            title: `Hello World!`,
+            content: `<p class="text-center fw-bold">Hello World!</p>`,
+            buttons,
+            centered,
+            backdrop: 'static',
+            keyboard,
+            focus,
+        });
+
+        modalCode.innerHTML = `bs5Utils.Modal.show({
+    type: '${type}',
+    title: 'Hello World!',
+    content: '<p class="text-center fw-bold">Hello World!</p>',
+    buttons: ${JSON.stringify(buttons)},
+    centered: ${centered},
+    dismissible: true,
+    backdrop: 'static',
+    keyboard: ${keyboard},
+    focus: ${focus},
+});`;
+
+        Prism.highlightElement(modalCode);
+    });
+</script>
+</body>
+</html>
