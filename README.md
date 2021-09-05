@@ -10,6 +10,14 @@ If this package has helped you, and you're feeling particularly generous:
 
 ---
 
+Contents
+-
+
+- [Configuration](#configuration)
+- [Theming](#theming)
+- [API](#api)
+- [Support & Contribute](#support--contribute)
+
 Configuration
 -
 
@@ -297,10 +305,13 @@ bs5Utils.Modal.show({
 
 ![img.png](example/img/api-modal-4.png)
 
-# Support & Contribute
+Support & Contribute
 -
 
 - Use: [Babel Repl](https://babeljs.io/repl) and [JavaScript Minifier](https://javascript-minifier.com/) to build the
   app to transpile and minify your changes
 - Submit issues and PRs
 - Let's know how you're using this package in your project
+- If this package has helped you, and you're feeling particularly generous:
+  - **ETH/MATIC:** 0x6515654c8e931052ab17a63311411D475D503e59
+  - **ADA:** addr1qxaqvghsr8lu3wrmql4fcvg6txj5083s2a9rr5dmrrtjt0yn8t0x4yav3ma2flg3tzcu9767s7senydcumnf6c4krnnspn949q
