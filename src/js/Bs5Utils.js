@@ -1,3 +1,7 @@
+import Toast from "./components/Toast";
+import Snack from "./components/Snack";
+import Modal from "./components/Modal";
+
 class Bs5Utils {
     /**
      * Default config options
@@ -106,3 +110,7 @@ class Bs5Utils {
         Bs5Utils.defaults.styles[key] = styles;
     }
 }
+
+export {
+    Bs5Utils as default
+};

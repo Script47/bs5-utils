@@ -1,6 +1,6 @@
 {
   "name": "bs5-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A JavaScript utility package for Bootstrap 5 components.",
   "main": "src/js/Bs5Utils.js",
   "repository": {
@@ -17,9 +17,7 @@
     "url": "https://github.com/Script47/bs5-utils/issues"
   },
   "homepage": "https://github.com/Script47/bs5-utils",
-  "scripts": {
-    "build": "webpack --config webpack.config.js"
-  },
+  "scripts": {},
   "dependencies": {
     "bootstrap": ">=5.0"
   },
