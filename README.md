@@ -1,7 +1,5 @@
 # Bs5Utils - A JavaScript utility package for Bootstrap 5 components
 
----
-
 A simple package to make the usage of various components within Bootstrap 5 easier to use.
 
 If this package has helped you, and you're feeling particularly generous:
