@@ -1,4 +1,6 @@
-class Snack {
+import Bs5Utils from "../Bs5Utils";
+
+export default class Snack {
     /**
      * A counter for the Snacks
      * @type {number}

@@ -1,4 +1,6 @@
-class Modal {
+import Bs5Utils from "../Bs5Utils";
+
+export default class Modal {
     /**
      * A counter for the Modals
      * @type {number}

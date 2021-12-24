@@ -1,4 +1,6 @@
-class Toast {
+import Bs5Utils from "../Bs5Utils";
+
+export default class Toast {
     /**
      * A counter for the Toasts
      * @type {number}
