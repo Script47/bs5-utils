@@ -139,7 +139,7 @@ class Snack {
       btnCloseStyle = style.btnClose.join(' '),
       snack = document.createElement('div');
 
-    snack.classList.add('toast', 'align-items-center', 'border-1', 'border-dark');
+    snack.classList.add('toast', 'align-items-center', 'border-0');
     style.main.forEach((value) => {
       snack.classList.add(value);
     });
