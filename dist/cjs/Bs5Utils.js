@@ -131,8 +131,9 @@ class Snack {
    * @param title - the title of the of the snack
    * @param delay - in ms, if specified the snack will autohide after the specified amount
    * @param dismissible - set whether the dismiss button should show
+   * @param icon - Set an icon in the left of the message, pass HTML directly
    */
-  show(type, title, delay = 0, dismissible = true) {
+  show(type, title, delay = 0, dismissible = true, icon = '') {
     this.#count++;
 
     const style = Bs5Utils.defaults.styles[type],
@@ -148,7 +149,8 @@ class Snack {
     snack.setAttribute('aria-live', 'assertive');
     snack.setAttribute('aria-atomic', 'true');
     snack.innerHTML = `
-      <div class="d-flex">
+      <div class="d-flex align-items-center">
+        ${icon}
         <div class="toast-body">${title}</div>
         ${
           dismissible
