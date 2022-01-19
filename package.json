@@ -1,6 +1,6 @@
 {
   "name": "bs5-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A JavaScript utility package for Bootstrap 5 components.",
   "main": "src/js/Bs5Utils.js",
   "repository": {
