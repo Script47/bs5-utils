@@ -8,6 +8,10 @@ If this package has helped you, and you're feeling particularly generous:
 
 **Note:** The package is also available on npmjs: https://www.npmjs.com/package/bs5-utils
 
+```bash
+npm i bs5-utils
+```
+
 ---
 
 Contents
