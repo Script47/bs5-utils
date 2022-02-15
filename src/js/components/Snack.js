@@ -1,4 +1,5 @@
 import Bs5Utils from "../Bs5Utils";
+import {Toast} from "bootstrap";
 
 export default class Snack {
     /**
@@ -54,7 +55,7 @@ export default class Snack {
             opts['delay'] = delay;
         }
 
-        const bsSnack = new bootstrap.Toast(snack, opts);
+        const bsSnack = new Toast(snack, opts);
 
         bsSnack.show();
 

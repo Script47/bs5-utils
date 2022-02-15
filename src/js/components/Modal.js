@@ -1,4 +1,5 @@
 import Bs5Utils from "../Bs5Utils";
+import {Modal as ModalBs} from "bootstrap";
 
 export default class Modal {
     /**
@@ -107,7 +108,7 @@ export default class Modal {
             focus
         };
 
-        const bsModal = new bootstrap.Modal(modal, opts);
+        const bsModal = new ModalBs(modal, opts);
 
         bsModal.show();
 
